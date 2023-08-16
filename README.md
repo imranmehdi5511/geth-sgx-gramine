@@ -39,18 +39,22 @@ sudo apt-add-repository 'https://packages.microsoft.com/ubuntu/20.04/prod main'
 sudo apt-get update && sudo apt-get install -y az-dcap-client
 ```
 The above is deprecated so use this:
-```
+
 # Fetch the Microsoft GPG key
+```
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/packages.microsoft-archive-keyring.gpg
-
+```
 # Add the repository
-echo "deb [signed-by=/usr/share/keyrings/packages.microsoft-archive-keyring.gpg] https://packages.microsoft.com/ubuntu/20.04/prod main" | sudo tee /etc/apt/sources.list.d/microsoft.list
 
+```
+echo "deb [signed-by=/usr/share/keyrings/packages.microsoft-archive-keyring.gpg] https://packages.microsoft.com/ubuntu/20.04/prod main" | sudo tee /etc/apt/sources.list.d/microsoft.list
+```
 # Update package list and install az-dcap-client
+```
 sudo apt-get update
 sudo apt-get install -y az-dcap-client
-
 ```
+
 ### b) Attestation via Intel - PCCS
 ```
 sudo apt-get install -y libsgx-dcap-default-qpl sgx-dcap-pccs
